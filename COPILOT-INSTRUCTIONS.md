@@ -37,27 +37,28 @@
 - Add new LLM adapters in `common/llm/adapters/`
 - Extend worker logic in `worker/worker_service.py`
 
-## Markdown Compliance
+## Markdown Syntax Compliance
 
-- All documentation and code comments must follow Markdown linting rules
-- Headings must be surrounded by blank lines
-- Lists must be surrounded by blank lines
-- Code blocks must specify language
-- No bare URLs; use Markdown links
+All Markdown files in this repository, including `AGENTS.md`, must follow syntax rules:
+
+- Blank lines before and after headings
+- Blank lines before and after lists
+- Fenced code blocks must specify a language (e.g. ```python)
+- No bare URLs; use descriptive Markdown links
+- Avoid trailing whitespace
+- Pass markdownlint (MD022, MD032, MD040, MD034, etc.) without warnings
 
 ## Example Test
 
-```python
-import pytest
-from common.llm.client import create_chatbot
-
-@pytest.mark.asyncio
 async def test_chatbot_returns_expected_response():
-    chatbot = create_chatbot(model_type="openai", model_name="gpt-4o-2024-08-06", temperature=0.0)
-    messages = [
-        {"role": "system", "content": "You are a helpful assistant."},
-        {"role": "user", "content": "Hello!"},
-    ]
-    response = await chatbot.chat(messages)
-    assert "Hello" in response
+chatbot = create_chatbot(model_type="openai", model_name="gpt-4o-2024-08-06", temperature=0.0)
+messages = [
+{"role": "system", "content": "You are a helpful assistant."},
+{"role": "user", "content": "Hello!"},
+]
+response = await chatbot.chat(messages)
+assert "Hello" in response
+
+```
+
 ```
