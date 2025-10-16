@@ -1,6 +1,7 @@
 # COPILOT-INSTRUCTIONS.md
 
 ## Coding Conventions
+
 - Use `async`/`await` for all I/O and agent operations
 - Use Pydantic models for structured data
 - Follow Protocol/Factory patterns for extensibility
@@ -8,6 +9,7 @@
 - All code and documentation must be fully Markdown-compliant
 
 ## Test Driven Development (TDD)
+
 - All new features and bugfixes must include tests in `tests/`
 - Use `pytest` and `pytest.mark.asyncio` for async tests
 - Use parameterized tests for coverage of multiple cases
@@ -15,12 +17,14 @@
 - For paid API/LLM tests, set `ALLOW_TESTS_TO_ACCESS_PAID_APIS=1` in `.env`
 
 ## Documentation
+
 - Document all major changes in `CHANGELOG.md`
 - Document agent patterns and architecture in `AGENTS.md`
 - Document local development in `LOCAL_DEV.md`
 - Use code comments and docstrings for all public functions/classes
 
 ## File Structure
+
 - `backend/`: FastAPI backend
 - `worker/`: Ray-based worker for queue/LLM tasks
 - `common/`: Shared logic, templates, adapters, types
@@ -28,11 +32,13 @@
 - `tests/`: All test code
 
 ## Extending
+
 - Add new templates in `common/templates/` using Protocols
 - Add new LLM adapters in `common/llm/adapters/`
 - Extend worker logic in `worker/worker_service.py`
 
 ## Markdown Compliance
+
 - All documentation and code comments must follow Markdown linting rules
 - Headings must be surrounded by blank lines
 - Lists must be surrounded by blank lines
@@ -40,6 +46,7 @@
 - No bare URLs; use Markdown links
 
 ## Example Test
+
 ```python
 import pytest
 from common.llm.client import create_chatbot
